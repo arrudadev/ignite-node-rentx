@@ -1,11 +1,9 @@
+import { CreateCategoryDTO } from '@/dto/CreateCategoryDTO'
 import { Category } from '@/models/Category'
 
-export type CreateCategoryDTO = {
-  name: string
-  description: string
-}
+import { ICategoriesRepository } from './ICategoriesRepository'
 
-export class CategoriesRepository {
+export class CategoriesRepository implements ICategoriesRepository {
   categories: Category[]
 
   constructor() {
