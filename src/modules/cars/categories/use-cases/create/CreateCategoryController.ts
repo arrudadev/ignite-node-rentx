@@ -7,7 +7,7 @@ export class CreateCategoryController {
   static handle(request: Request, response: Response) {
     const { name, description } = request.body
 
-    const categoriesRepository = new CategoriesRepository()
+    const categoriesRepository = CategoriesRepository.getInstance()
     const createCategoryUseCase = new CreateCategoryUseCase(
       categoriesRepository,
     )
