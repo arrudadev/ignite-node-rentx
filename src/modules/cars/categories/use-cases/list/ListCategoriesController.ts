@@ -1,16 +1,12 @@
 import { Request, Response } from 'express'
 
-import { CategoriesRepository } from '../../repositories/CategoriesRepository'
 import { ListCategoriesUseCase } from './ListCategoriesUseCase'
 
 export class ListCategoriesController {
-  static handle(request: Request, response: Response) {
-    const categoriesRepository = CategoriesRepository.getInstance()
-    const listCategoriesUseCase = new ListCategoriesUseCase(
-      categoriesRepository,
-    )
+  constructor(private listCategoriesUseCase: ListCategoriesUseCase) {}
 
-    const categories = listCategoriesUseCase.execute()
+  handle(request: Request, response: Response) {
+    const categories = this.listCategoriesUseCase.execute()
 
     response.json(categories)
   }
