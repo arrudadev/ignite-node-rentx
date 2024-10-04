@@ -1,5 +1,5 @@
-import { CreateCategoryDTO } from '@/dto/CreateCategoryDTO'
-import { Category } from '@/models/Category'
+import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
+import { Category } from '@/modules/cars/categories/models/Category'
 
 import { ICategoriesRepository } from './ICategoriesRepository'
 

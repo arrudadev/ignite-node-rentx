@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
       express:
         specifier: ^4.21.0
         version: 4.21.0
@@ -27,6 +24,9 @@ importers:
       '@types/node':
         specifier: ^22.7.4
         version: 22.7.4
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       eslint:
         specifier: 8.56.0
         version: 8.56.0

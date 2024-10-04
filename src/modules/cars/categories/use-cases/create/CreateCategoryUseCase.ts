@@ -1,7 +1,7 @@
-import { CreateCategoryDTO } from '@/dto/CreateCategoryDTO'
-import { ICategoriesRepository } from '@/repositories/ICategoriesRepository'
+import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
+import { ICategoriesRepository } from '@/modules/cars/categories/repositories/ICategoriesRepository'
 
-export class CreateCategoryService {
+export class CreateCategoryUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
   execute({ name, description }: CreateCategoryDTO) {
