@@ -1,18 +1,14 @@
 import { Request, Response } from 'express'
 
-import { CategoriesRepository } from '../../repositories/CategoriesRepository'
 import { CreateCategoryUseCase } from './CreateCategoryUseCase'
 
 export class CreateCategoryController {
-  static handle(request: Request, response: Response) {
+  constructor(private createCategoryUseCase: CreateCategoryUseCase) {}
+
+  handle(request: Request, response: Response) {
     const { name, description } = request.body
 
-    const categoriesRepository = CategoriesRepository.getInstance()
-    const createCategoryUseCase = new CreateCategoryUseCase(
-      categoriesRepository,
-    )
-
-    createCategoryUseCase.execute({ name, description })
+    this.createCategoryUseCase.execute({ name, description })
 
     return response.status(201).send()
   }
