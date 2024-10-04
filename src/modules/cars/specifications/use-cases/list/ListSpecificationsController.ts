@@ -1,17 +1,12 @@
 import { Request, Response } from 'express'
 
-import { SpecificationRepository } from '@/modules/cars/specifications/repositories/SpecificationRepository'
-
 import { ListSpecificationsUseCase } from './ListSpecificationsUseCase'
 
 export class ListSpecificationsController {
-  static handle(request: Request, response: Response) {
-    const specificationsRepository = SpecificationRepository.getInstance()
-    const listSpecificationsUseCase = new ListSpecificationsUseCase(
-      specificationsRepository,
-    )
+  constructor(private listSpecificationsUseCase: ListSpecificationsUseCase) {}
 
-    const specifications = listSpecificationsUseCase.execute()
+  handle(request: Request, response: Response) {
+    const specifications = this.listSpecificationsUseCase.execute()
 
     response.json(specifications)
   }
