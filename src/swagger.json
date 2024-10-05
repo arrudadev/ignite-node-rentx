@@ -1,0 +1,89 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RentX API Documentation",
+    "description": "API Documentation",
+    "version": "1.0.0",
+    "contact": {
+      "email": "alexandre.monteiro.bec@gmail.com"
+    }
+  },
+  "paths": {
+    "/cars/categories": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "List all categories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description"
+                ],
+                "example": {
+                  "name": "Category name",
+                  "description": "Category description"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
+        }
+      }
+    }
+  }
+}
