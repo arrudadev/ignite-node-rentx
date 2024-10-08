@@ -8,4 +8,5 @@ export const dataSource = new DataSource({
   password: 'rentx',
   database: 'rentx',
   migrations: ['src/database/migrations/*.ts'],
+  entities: ['src/modules/**/entities/*.ts'],
 })

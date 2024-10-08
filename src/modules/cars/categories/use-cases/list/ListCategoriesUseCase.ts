@@ -3,7 +3,7 @@ import { ICategoriesRepository } from '@/modules/cars/categories/repositories/IC
 export class ListCategoriesUseCase {
   constructor(private categoriesRepository: ICategoriesRepository) {}
 
-  execute() {
+  async execute() {
     return this.categoriesRepository.list()
   }
 }

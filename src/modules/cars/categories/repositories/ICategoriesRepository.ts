@@ -1,8 +1,8 @@
 import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
-import { Category } from '@/modules/cars/categories/models/Category'
+import { Category } from '@/modules/cars/categories/entities/Category'
 
 export interface ICategoriesRepository {
-  create({ name, description }: CreateCategoryDTO): void
-  list(): Category[]
-  findByName(name: string): Category | undefined
+  create({ name, description }: CreateCategoryDTO): Promise<void>
+  list(): Promise<Category[]>
+  findByName(name: string): Promise<Category | null>
 }

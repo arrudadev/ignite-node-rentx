@@ -3,7 +3,7 @@ import { CategoriesRepository } from '@/modules/cars/categories/repositories/Cat
 import { ListCategoriesController } from './ListCategoriesController'
 import { ListCategoriesUseCase } from './ListCategoriesUseCase'
 
-const categoriesRepository = CategoriesRepository.getInstance()
+const categoriesRepository = new CategoriesRepository()
 const listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository)
 const listCategoriesController = new ListCategoriesController(
   listCategoriesUseCase,

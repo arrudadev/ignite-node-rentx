@@ -5,11 +5,11 @@ import { ImportCategoriesUseCase } from './ImportCategoriesUseCase'
 export class ImportCategoriesController {
   constructor(private importCategoriesUseCase: ImportCategoriesUseCase) {}
 
-  handle(request: Request, response: Response): Response {
+  async handle(request: Request, response: Response) {
     const { file } = request
 
     if (file) {
-      this.importCategoriesUseCase.execute(file)
+      await this.importCategoriesUseCase.execute(file)
     }
 
     return response.send()
