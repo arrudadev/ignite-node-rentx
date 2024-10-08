@@ -1,0 +1,17 @@
+services:
+  database:
+    image: postgres:14
+    container_name: ignite-rentx-database
+    environment:
+      POSTGRES_USER: rentx
+      POSTGRES_PASSWORD: rentx
+      POSTGRES_DB: rentx
+    ports:
+      - 5432:5432
+    volumes:
+      - ignite-rentx-data:/var/lib/postgresql/data
+
+volumes:
+  ignite-rentx-data:
+    driver: local
+
