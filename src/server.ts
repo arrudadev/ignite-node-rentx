@@ -1,8 +1,20 @@
+import 'reflect-metadata'
+
 import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 
+import { dataSource } from './database'
 import { router } from './routes'
 import swaggerConfig from './swagger.json'
+
+dataSource
+  .initialize()
+  .then(() => {
+    console.log('Data Source has been initialized!')
+  })
+  .catch((err) => {
+    console.error('Error during Data Source initialization:', err)
+  })
 
 const app = express()
 
