@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "tsup src/server.ts --minify"
+    "build": "tsup src/server.ts --minify",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:migrate": "pnpm typeorm migration:run -- -d ./src/database/index.ts"
   },
   "dependencies": {
     "csv-parse": "^5.5.6",

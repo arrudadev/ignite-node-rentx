@@ -7,4 +7,5 @@ export const dataSource = new DataSource({
   username: 'rentx',
   password: 'rentx',
   database: 'rentx',
+  migrations: ['src/database/migrations/*.ts'],
 })
