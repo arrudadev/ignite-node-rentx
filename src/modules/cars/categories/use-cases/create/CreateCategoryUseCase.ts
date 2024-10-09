@@ -1,8 +1,14 @@
+import { inject, injectable } from 'tsyringe'
+
 import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
 import { ICategoriesRepository } from '@/modules/cars/categories/repositories/ICategoriesRepository'
 
+@injectable()
 export class CreateCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) {}
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository,
+  ) {}
 
   async execute({ name, description }: CreateCategoryDTO) {
     const categoryAlreadyExists =
