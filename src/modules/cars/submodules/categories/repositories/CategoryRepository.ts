@@ -1,12 +1,11 @@
 import { Repository } from 'typeorm'
 
 import { dataSource } from '@/database'
-import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
-import { Category } from '@/modules/cars/categories/entities/Category'
 
-import { ICategoriesRepository } from './ICategoriesRepository'
+import { CreateCategoryDTO } from '../dtos/CategoryDTO'
+import { Category } from '../entities/Category'
 
-export class CategoriesRepository implements ICategoriesRepository {
+export class CategoryRepository {
   private async getRepository(): Promise<Repository<Category>> {
     return dataSource.getRepository(Category)
   }
