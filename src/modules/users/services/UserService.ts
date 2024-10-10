@@ -4,14 +4,14 @@ import { AppError } from '@/shared/errors/AppError'
 import { HttpStatusCode } from '@/shared/errors/HttpStatusCode'
 
 import { CreateUserDTO } from '../dtos/UserDTO'
-import { IUsersRepository } from '../repositories/UserRepository'
+import { UserRepository } from '../repositories/UserRepository'
 
 export interface IUserService {
   create(createUserDTO: CreateUserDTO): Promise<void>
 }
 
 export class UserService implements IUserService {
-  constructor(private userRepository: IUsersRepository) {}
+  constructor(private userRepository: UserRepository) {}
 
   async create(createUserDTO: CreateUserDTO): Promise<void> {
     const userAlreadyExists = await this.userRepository.findByEmail(
