@@ -1,17 +1,16 @@
 import { Repository } from 'typeorm'
 
 import { dataSource } from '@/database'
-import { CreateCategoryDTO } from '@/modules/cars/categories/dtos/CreateCategoryDTO'
-import { Specification } from '@/modules/cars/specifications/entities/Specification'
 
-import { ISpecificationRepository } from './ISpecificationRepository'
+import { CreateSpecificationDTO } from '../dtos/SpecificationDTO'
+import { Specification } from '../entities/Specification'
 
-export class SpecificationRepository implements ISpecificationRepository {
+export class SpecificationRepository {
   private async getRepository(): Promise<Repository<Specification>> {
     return dataSource.getRepository(Specification)
   }
 
-  async create({ name, description }: CreateCategoryDTO) {
+  async create({ name, description }: CreateSpecificationDTO) {
     const repository = await this.getRepository()
 
     const specification = repository.create({ name, description })
