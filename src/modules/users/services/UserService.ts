@@ -29,4 +29,8 @@ export class UserService implements IUserService {
 
     await this.userRepository.create(user)
   }
+
+  async findByEmail(email: string) {
+    return this.userRepository.findByEmail(email)
+  }
 }

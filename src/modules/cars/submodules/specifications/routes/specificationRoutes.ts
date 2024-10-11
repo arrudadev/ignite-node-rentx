@@ -1,5 +1,7 @@
 import { Router } from 'express'
 
+import { isAuthenticated } from '@/modules/auth/middlewares/isAuthenticated'
+
 import { SpecificationController } from '../controllers/SpecificationController'
 import { SpecificationRepository } from '../repositories/SpecificationRepository'
 import { SpecificationService } from '../services/SpecificationService'
@@ -12,11 +14,15 @@ const specificationController = new SpecificationController(
   specificationService,
 )
 
-specificationsRoutes.get('/specifications', (request, response) =>
-  specificationController.list(request, response),
+specificationsRoutes.get(
+  '/specifications',
+  isAuthenticated,
+  (request, response) => specificationController.list(request, response),
 )
-specificationsRoutes.post('/specifications', (request, response) =>
-  specificationController.create(request, response),
+specificationsRoutes.post(
+  '/specifications',
+  isAuthenticated,
+  (request, response) => specificationController.create(request, response),
 )
 
 export { specificationsRoutes }

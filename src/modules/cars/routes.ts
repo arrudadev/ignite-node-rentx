@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import { categoriesRoutes } from './submodules/categories/routes/CategoryRoutes'
-import { specificationsRoutes } from './submodules/specifications/routes/SpecificationRoutes'
+import { categoriesRoutes } from './submodules/categories/routes/categoryRoutes'
+import { specificationsRoutes } from './submodules/specifications/routes/specificationRoutes'
 
 const carsRoutes = Router()
 
